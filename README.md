@@ -36,8 +36,11 @@ mapObject(obj, fn, options)
 
 #### `{function} fn` - A function to call on each key / val pair.
 function signature is as follows:
+
 `{string} key`
+
 `{any} value`
+
 `{object} source` - The source object.
 
 `@return []` - An array with `[targetKey, targetValue]` elements.
