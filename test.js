@@ -1,6 +1,6 @@
 const test = require('ava');
 
-const mapObject = require('./map-object');
+const mapObject = require('./index');
 
 test('mapObject - Map over an object', t => {
   const obj = {

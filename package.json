@@ -1,0 +1,17 @@
+{
+  "name": "@mmckelvy/map-object",
+  "version": "1.0.0",
+  "description": "Map over an object calling a function on each key / value pair.",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava --verbose"
+  },
+  "keywords": [
+    "map-object"
+  ],
+  "author": "Mark McKelvy",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^2.2.0"
+  }
+}
