@@ -20,7 +20,7 @@ const mapped = mapObject(obj, (key, val) => {
 });
 
 console.log(mapped);
-// =>
+// results in:
 {
   fruit: 'apple',
   color: 'green'
