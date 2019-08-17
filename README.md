@@ -31,11 +31,10 @@ const mapped = mapObject(obj, (key, val) => {
 ### `mapObject(obj, fn, options)`
 
 #### obj
-`object`.
+`object`
 
 The source object.
 
----
 
 #### fn
 `function`
@@ -59,7 +58,6 @@ The source object.
 ##### return
 An array with `[targetKey, targetValue]` elements.
 
----
 
 #### options
 `object`
@@ -69,7 +67,6 @@ An array with `[targetKey, targetValue]` elements.
 
 Map over nested objects.
 
----
 
 #### return
 `object` The mapped object.
