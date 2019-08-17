@@ -19,33 +19,54 @@ const mapped = mapObject(obj, (key, val) => {
   return [val, key];
 });
 
-console.log(mapped);
-// results in:
+/* ->
 {
   fruit: 'apple',
   color: 'green'
 }
+*/
 ```
 
 ## API
-```javascript
-mapObject(obj, fn, options)
-```
+### `mapObject(obj, fn, options)`
 
-#### `{object} obj` - The source object.
+#### obj
+`object`.
 
-#### `{function} fn` - A function to call on each key / val pair.
+The source object.
+---
+
+#### fn
+`function`
+
+A function to call on each key / val pair.
+
 function signature is as follows:
+#### `fn(key, value, source?)`
 
-`{string} key`
+##### key
+`string`
 
-`{any} value`
+##### value
+`any`
 
-`{object} source` - The source object.
+##### source
+`object`
 
-`@return []` - An array with `[targetKey, targetValue]` elements.
+The source object.
 
-#### `{object} options` - Includes the following keys:
-`{boolean} options.recursive` - map over nested objects / arrays.
+##### return
+An array with `[targetKey, targetValue]` elements.
+---
 
-#### `@return {object}` - The mapped object.
+#### options
+`object`
+
+##### options.recursive
+`boolean`
+
+Map over nested objects.
+---
+
+#### return
+`object` The mapped object.

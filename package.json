@@ -9,6 +9,10 @@
   "keywords": [
     "map-object"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmckelvy/map-object"
+  },
   "author": "Mark McKelvy",
   "license": "MIT",
   "devDependencies": {
