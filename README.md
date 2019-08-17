@@ -30,28 +30,23 @@ const mapped = mapObject(obj, (key, val) => {
 ## API
 ### `mapObject(obj, fn, options)`
 
-#### obj
-`object`
+#### obj `object`
 
 The source object.
 
 
-#### fn
-`function`
+#### fn `function`
 
 A function to call on each key / val pair.
 
 function signature is as follows:
 #### `fn(key, value, source?)`
 
-##### key
-`string`
+##### key `string`
 
-##### value
-`any`
+##### value `any`
 
-##### source
-`object`
+##### source `object`
 
 The source object.
 
@@ -59,11 +54,9 @@ The source object.
 An array with `[targetKey, targetValue]` elements.
 
 
-#### options
-`object`
+#### options `object`
 
-##### options.recursive
-`boolean`
+##### options.recursive `boolean`
 
 Map over nested objects.
 
