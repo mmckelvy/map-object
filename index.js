@@ -1,5 +1,16 @@
 function isObject(item) {
-  return (typeof item === 'object' && item !== null);
+  return (
+    typeof item === 'object'
+    && item !== null
+  );
+}
+
+function isSpecialObject(item) {
+  return (
+    item instanceof RegExp
+    || item instanceof Error
+    || item instanceof Date
+  );
 }
 
 /**
@@ -19,7 +30,7 @@ function isObject(item) {
 * @return {object} - The mapped object.
 */
 module.exports = function mapObject(obj, fn, { recursive = false } = {}) {
-  if (!isObject(obj) || Array.isArray(obj)) {
+  if (!isObject(obj) || Array.isArray(obj) || isSpecialObject(obj)) {
     throw new TypeError(`Expected an object, got ${typeof obj}`);
   }
 
@@ -27,7 +38,7 @@ module.exports = function mapObject(obj, fn, { recursive = false } = {}) {
     const [ newKey, newValue ] = fn(key, obj[key], obj);
 
     // recursive case
-    if (isObject(obj[key]) && recursive) {
+    if (isObject(obj[key]) && !isSpecialObject(obj[key]) && recursive) {
 
       // handle arrays
       if (Array.isArray(obj[key])) {
@@ -40,9 +51,13 @@ module.exports = function mapObject(obj, fn, { recursive = false } = {}) {
         acc[newKey] = mapObject(obj[key], fn, {recursive: true});
       }
 
-    // base case
-    } else {
+    // base case plain primitive
+    } else if (!isSpecialObject(obj[key])) {
       acc[newKey] = newValue;
+
+    // just pass the value on through if we have a special object
+    } else {
+      acc[key] = obj[key];
     }
 
     return acc;
