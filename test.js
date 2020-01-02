@@ -114,7 +114,7 @@ test('mapObject - Throw an error if passed an array', t => {
   }, TypeError);
 });
 
-test('mapObject - Skip special objects', t => {
+test('mapObject - Handle special objects', t => {
   const date = new Date();
   const re = new RegExp('[a-z]');
 
@@ -126,14 +126,14 @@ test('mapObject - Skip special objects', t => {
   };
 
   const actual = mapObject(obj, (key, val) => {
-    return [val, key];
+    return [`x${key}`, val];
   });
 
   const expected = {
-    fruit: 'apple',
-    color: 'green',
-    someDate: date,
-    someRegExp: re
+    xapple: 'fruit',
+    xgreen: 'color',
+    xsomeDate: date,
+    xsomeRegExp: re
   };
 
   t.deepEqual(actual, expected);
