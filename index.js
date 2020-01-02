@@ -34,9 +34,13 @@ module.exports = function mapObject(obj, fn, { recursive = false } = {}) {
     const [ newKey, newValue ] = fn(key, obj[key], obj);
 
     // handle arrays
-    if (Array.isArray(obj[key]) && recursive) {
+    if (Array.isArray(obj[key])) {
       acc[newKey] = obj[key].map((el) => {
-        return mapObject(el, fn, {recursive: true});
+        if (isObject(el) && recursive) {
+          return mapObject(el, fn, {recursive: true});
+        }
+
+        return el;
       });
 
     // handle nested objects
